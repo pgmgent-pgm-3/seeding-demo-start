@@ -26,6 +26,6 @@
     "@faker-js/faker": "^6.0.0",
     "@fakerjs/animal": "^2.2.0",
     "cheerio": "*",
-    "node-fetch": "^3.2.3",
+    "node-fetch": "^3.2.3"
   }
 }

@@ -31,7 +31,7 @@ class ZooAltFactory extends Factory {
       if (onlyZoo) {
         this.zoos.push({
           country: onlyCountry,
-          zoo: onlyZoo,
+          name: onlyZoo,
         });
       }
     });
@@ -42,8 +42,6 @@ class ZooAltFactory extends Factory {
       await this.scrape();
     }
 
-    console.log(this.zoos);
-    return;
     const randIndex = Math.floor(Math.random() * this.zoos.length);
     const randomZoo = this.zoos[randIndex];
 

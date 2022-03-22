@@ -37,4 +37,6 @@ const dbSeeder = new DatabaseSeeder(
 //   //   console.log(records);
 // });
 
-dbSeeder.run(ZooAltFactory, 1).then((records) => {});
+dbSeeder.run(ZooAltFactory, 60).then((records) => {
+  console.log(records);
+});

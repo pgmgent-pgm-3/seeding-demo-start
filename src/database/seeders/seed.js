@@ -1,6 +1,10 @@
 // imports
 import DatabaseSeeder from "./DatabaseSeeder.js";
-import { TypeFactory, AnimalFactory } from "../factories/index.js";
+import {
+  TypeFactory,
+  AnimalFactory,
+  CountryFactory,
+} from "../factories/index.js";
 import entities from "../../models/index.js";
 
 // new instance of db seeder
@@ -16,7 +20,12 @@ const dbSeeder = new DatabaseSeeder(
 //   console.log(records);
 // });
 
-dbSeeder.run(AnimalFactory, 50).then((records) => {
+// dbSeeder.run(AnimalFactory, 50).then((records) => {
+//   console.log(`${records.length} seeded in db`);
+//   console.log(records);
+// });
+
+dbSeeder.run(CountryFactory, 200).then((records) => {
   console.log(`${records.length} seeded in db`);
   console.log(records);
 });

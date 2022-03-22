@@ -25,8 +25,15 @@ class ZooAltFactory extends Factory {
     titleTags.each((ind, tag) => {
       const zooTag = $(tag).html();
       const zooAndCountry = zooTag.split(" – ").pop();
-      const onlyZoo = zooAndCountry.split(",").shift();
-      console.log(onlyZoo);
+      const onlyZoo = zooAndCountry.split(",").shift().trim();
+      const onlyCountry = zooAndCountry.split(", ").slice(-1)[0];
+
+      if (onlyZoo) {
+        this.zoos.push({
+          country: onlyCountry,
+          zoo: onlyZoo,
+        });
+      }
     });
   }
 
@@ -35,6 +42,7 @@ class ZooAltFactory extends Factory {
       await this.scrape();
     }
 
+    console.log(this.zoos);
     return;
     const randIndex = Math.floor(Math.random() * this.zoos.length);
     const randomZoo = this.zoos[randIndex];

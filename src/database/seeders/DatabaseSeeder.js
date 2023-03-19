@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { DataSource } from "typeorm";
+import entities from "../../models/index.js";
 
 // connect to database
 class DatabaseSeeder {

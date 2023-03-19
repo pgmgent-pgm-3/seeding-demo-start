@@ -1,8 +1,5 @@
 import "dotenv/config";
-import entities from "../../models/index.js";
-
-import typeorm from "typeorm";
-const { createConnection, getConnection } = typeorm;
+import { DataSource } from "typeorm";
 
 // connect to database
 class DatabaseSeeder {
@@ -13,7 +10,7 @@ class DatabaseSeeder {
   }
 
   async connect() {
-    const connection = await createConnection({
+    const connection = new DataSource({
       type: this.type,
       database: this.database,
       entities: this.entities,

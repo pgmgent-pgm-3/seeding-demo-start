@@ -1,13 +1,12 @@
 import express from "express";
 import "dotenv/config";
-import * as path from "path";
 import { create } from "express-handlebars";
-import { SOURCE_PATH } from "./consts.js";
-import { home } from "./controllers/home.js";
-import entities from "./models/index.js";
-const { createConnection, getConnection } = typeorm;
-import typeorm from "typeorm";
 import bodyParser from "body-parser";
+
+import DataSource from "./lib/DataSource.js";
+import { VIEWS_PATH } from "./consts.js";
+import { home } from "./controllers/home.js";
+
 const app = express();
 app.use(express.static("public"));
 
@@ -19,7 +18,7 @@ const hbs = create({
 });
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
-app.set("views", path.join(SOURCE_PATH, "views"));
+app.set("views", VIEWS_PATH);
 
 // When sending data via a body (e.g. POSTing a form)
 app.use(bodyParser.json());
@@ -33,17 +32,17 @@ app.get("/", home);
 /**
  * Init TypeORM
  */
-createConnection({
-  type: process.env.DATABASE_TYPE,
-  database: process.env.DATABASE_NAME,
-  entities,
-  synchronize: true,
-}).then(() => {
-  app.listen(process.env.PORT, () => {
-    console.log(
-      `Application is running on http://localhost:${process.env.PORT}/.`
-    );
+// start the server
+DataSource.initialize()
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log(
+        `Application is running on http://localhost:${process.env.PORT}/.`
+      );
+    });
+  })
+  .catch(function (error) {
+    console.log("Error: ", error);
   });
-});
 
 export default app;

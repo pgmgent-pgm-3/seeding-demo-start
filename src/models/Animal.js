@@ -21,7 +21,7 @@ export default new EntitySchema({
       type: "many-to-one",
       joinColumn: true,
     },
-    animals: {
+    zoos: {
       target: "Zoo",
       type: "many-to-many",
       joinTable: {

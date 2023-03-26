@@ -1,6 +1,5 @@
 import "dotenv/config";
-import { DataSource } from "typeorm";
-import entities from "../../models/index.js";
+import DataSource from "../../lib/DataSource.js";
 
 // connect to database
 export default class DatabaseSeeder {
@@ -12,12 +11,7 @@ export default class DatabaseSeeder {
   }
 
   async connect() {
-    this.connection = new DataSource({
-      type: this.type,
-      database: this.database,
-      entities: this.entities,
-      synchronize: true,
-    });
+    this.connection = await DataSource.initialize();
   }
 
   async run(factory, amount = 1) {

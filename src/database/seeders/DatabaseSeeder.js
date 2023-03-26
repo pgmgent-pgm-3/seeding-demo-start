@@ -19,4 +19,17 @@ export default class DatabaseSeeder {
       synchronize: true,
     });
   }
+
+  async run(factory, amount = 1) {
+    // connect to database
+    await this.connect();
+
+    if (amount > 1) {
+      await factory.makeMany(amount);
+    } else {
+      await factory.make();
+    }
+
+    return factory.inserted;
+  }
 }

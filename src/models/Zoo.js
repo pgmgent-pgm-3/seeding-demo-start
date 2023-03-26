@@ -26,6 +26,7 @@ export default new EntitySchema({
       type: "many-to-many",
       joinTable: {
         name: "animal_zoo",
-      }
+      },
+    },
   },
 });

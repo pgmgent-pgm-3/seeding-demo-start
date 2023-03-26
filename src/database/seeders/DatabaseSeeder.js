@@ -1,4 +1,3 @@
-import "dotenv/config";
 import DataSource from "../../lib/DataSource.js";
 
 // connect to database

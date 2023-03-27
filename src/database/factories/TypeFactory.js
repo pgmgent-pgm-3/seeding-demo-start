@@ -1,7 +1,7 @@
 import DataSource from "../../lib/DataSource.js";
 import Factory from "./Factory.js";
 
-export default class TypeFactory extends Factory {
+class TypeFactory extends Factory {
   constructor() {
     // roep de constructor van de parent class aan
     super();
@@ -35,3 +35,5 @@ export default class TypeFactory extends Factory {
     console.log("This record will be inserted:", name);
   }
 }
+
+export default new TypeFactory();

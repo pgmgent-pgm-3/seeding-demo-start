@@ -17,6 +17,7 @@ export default class DatabaseSeeder {
     // connect to database
     await this.connect();
 
+    console.log("factory:", factory);
     if (amount > 1) {
       await factory.makeMany(amount);
     } else {

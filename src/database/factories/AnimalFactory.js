@@ -20,6 +20,8 @@ class AnimalFactory extends Factory {
 
     const beast = animal({ type: randomType });
     console.log(beast);
+
+    // id, name and type_id
   }
 
   async insert() {}

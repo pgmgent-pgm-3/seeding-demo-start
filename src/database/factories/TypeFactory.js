@@ -24,23 +24,23 @@ class TypeFactory extends Factory {
 
   // generate many types
   async makeMany() {
-    this.types.forEach(async (type) => {
+    for (const type of this.types) {
       const record = await this.insert(type);
       this.inserted.push(record);
-    });
+    }
   }
 
   // insert in the database
   async insert(name) {
     //  console.log("This record will be inserted:", name);
-    const typeRepo = DataSource.getRepository("type");
+    const typeRepo = DataSource.getRepository("Type");
 
     // check if record exists
     let record = await typeRepo.findOne({ where: { name } });
     if (record) return record;
 
     // it doesn't exist, so create it
-    record = await typeRepo.create({ name });
+    record = await typeRepo.save({ name });
 
     // return the record
     return record;

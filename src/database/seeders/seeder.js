@@ -10,6 +10,6 @@ const dbSeeder = new DatabaseSeeder(
   entities
 );
 
-dbSeeder.run(TypeFactory).then(() => {
-  console.log("Done seeding!");
+dbSeeder.run(TypeFactory).then((records) => {
+  console.log("Inserted records:", records);
 });

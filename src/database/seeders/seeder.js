@@ -3,6 +3,7 @@ import DatabaseSeeder from "./DatabaseSeeder.js";
 import entities from "../../models/index.js";
 import minimist from "minimist";
 import TypeFactory from "../factories/TypeFactory.js";
+import AnimalFactory from "../factories/AnimalFactory.js";
 
 const dbSeeder = new DatabaseSeeder(
   process.env.DATABASE_TYPE,
@@ -10,6 +11,10 @@ const dbSeeder = new DatabaseSeeder(
   entities
 );
 
-dbSeeder.run(TypeFactory).then((records) => {
-  console.log("Inserted records:", records);
+// dbSeeder.run(TypeFactory).then((records) => {
+//   console.log("Inserted records:", records);
+// });
+
+dbSeeder.run(AnimalFactory, 100).then((records) => {
+  console.log("Done!");
 });

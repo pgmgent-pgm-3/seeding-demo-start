@@ -6,14 +6,24 @@ class TypeFactory extends Factory {
     // roep de constructor van de parent class aan
     super();
 
+    // this.types = [
+    //   "zoogdieren",
+    //   "reptielen",
+    //   "vissen",
+    //   "amfibieën",
+    //   "insecten",
+    //   "spinnen",
+    //   "vogels",
+    // ];
+
     this.types = [
-      "zoogdieren",
-      "reptielen",
-      "vissen",
-      "amfibieën",
-      "insecten",
-      "spinnen",
-      "vogels",
+      "ocean",
+      "desert",
+      "grassland",
+      "forest",
+      "farm",
+      "pet",
+      "zoo",
     ];
   }
 

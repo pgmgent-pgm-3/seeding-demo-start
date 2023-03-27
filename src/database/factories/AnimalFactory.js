@@ -18,13 +18,35 @@ class AnimalFactory extends Factory {
     const randomIndex = Math.floor(Math.random() * this.types.length);
     const randomType = this.types[randomIndex];
 
-    const beast = animal({ type: randomType });
-    console.log(beast);
+    const beast = {
+      name: animal({ type: randomType }),
+      color: faker.color.human(),
+      isFluffy: faker.datatype.boolean(),
+      latinName: faker.lorem.word(),
+    };
 
-    // id, name and type_id
+    const record = await this.insert(beast, randomType);
+    this.inserted.push(record);
   }
 
-  async insert() {}
+  async insert(beast, type) {
+    const repo = DataSource.getRepository("Animal");
+
+    // check if animal not in database yet?
+    let record = await repo.findOne({ where: { name: beast.name } });
+    if (record) return record;
+
+    // get or create the animal type
+    const typeRecord = await TypeFactory.insert(type);
+
+    // save the animal and link it to the type
+    record = await repo.save({
+      ...beast,
+      type: typeRecord,
+    });
+
+    return record;
+  }
 }
 
 export default new AnimalFactory();

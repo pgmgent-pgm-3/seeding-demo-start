@@ -16,5 +16,5 @@ const dbSeeder = new DatabaseSeeder(
 // });
 
 dbSeeder.run(AnimalFactory, 100).then((records) => {
-  console.log("Done!");
+  console.log("Inserted these records: ", records);
 });

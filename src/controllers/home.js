@@ -5,13 +5,12 @@
 import DataSource from "../lib/DataSource.js";
 
 export const home = async (req, res) => {
-  // get repositories
-  const navigationItemRepository = DataSource.getRepository("NavigationItem");
-
-  // fetch the menu items
-  const menuItems = await navigationItemRepository.find();
-
   res.render("home", {
-    menuItems,
+    menuItems: [
+      { name: "Animals", url: "/animals" },
+      { name: "Types", url: "/types" },
+      { name: "Countries", url: "/countries" },
+      { name: "Zoos", url: "/zoos" },
+    ],
   });
 };

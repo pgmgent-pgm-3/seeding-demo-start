@@ -42,7 +42,6 @@ class TypeFactory extends Factory {
 
   // insert in the database
   async insert(name) {
-    //  console.log("This record will be inserted:", name);
     const typeRepo = DataSource.getRepository("Type");
 
     // check if record exists

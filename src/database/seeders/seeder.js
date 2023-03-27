@@ -1,7 +1,7 @@
 import "dotenv/config";
+import minimist from "minimist";
 import DatabaseSeeder from "./DatabaseSeeder.js";
 import entities from "../../models/index.js";
-import minimist from "minimist";
 import TypeFactory from "../factories/TypeFactory.js";
 import AnimalFactory from "../factories/AnimalFactory.js";
 

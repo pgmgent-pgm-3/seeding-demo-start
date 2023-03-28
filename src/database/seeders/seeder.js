@@ -2,7 +2,7 @@ import "dotenv/config";
 import minimist from "minimist";
 import DatabaseSeeder from "./DatabaseSeeder.js";
 import entities from "../../models/index.js";
-import { TypeFactory, CountryFactory, AnimalFactory } from "../factories/index.js";
+import { TypeFactory, CountryFactory, AnimalFactory, ZooFactory } from "../factories/index.js";
 
 
 const dbSeeder = new DatabaseSeeder(
@@ -29,6 +29,8 @@ switch (factory) {
   case "country":
     dbSeeder.run(CountryFactory, amount).then(logResponse);
     break;
+  case "zoo":
+    dbSeeder.run(ZooFactory, amount).then(logResponse);
 }
 
 

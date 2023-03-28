@@ -1,9 +1,10 @@
 <h1>Animals</h1>
 {{#each animals}}
-    <div class="animal">
-        <h2>{{name}}</h2>
-        <p>{{id}}</p>
-    </div>
+    <form action="/delete/{{id}}">
+        <input type="hidden" name="" value="{{id}}">
+        <label for="">{{name}}</label>
+        <input type="submit" value="Delete">
+    </form>
 {{/each}}
     
     {{! Path: src\views\index.hbs }}

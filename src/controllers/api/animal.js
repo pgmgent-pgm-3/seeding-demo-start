@@ -8,8 +8,8 @@ export const deleteAnimal = async (req, res) => {
 
         const animalsRepository = DataSource.getRepository("animals");
 
-        const animal = await animalsRepository.findOne(id);
-
+        // const animal = await animalsRepository.findOne({where: {id : id}});
+        const animal = await animalsRepository.findOneBy({id : id});
         if(!animal) throw new Error(`Animal with ${id} not found.`);
 
         await animalsRepository.remove(animal);

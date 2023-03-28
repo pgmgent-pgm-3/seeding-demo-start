@@ -1,0 +1,10 @@
+<h1>Animals</h1>
+{{#each animals}}
+    <form action="/delete/{{id}}">
+        <input type="hidden" name="" value="{{id}}">
+        <label for="">{{name}}</label>
+        <input type="submit" value="Delete">
+    </form>
+{{/each}}
+    
+    {{! Path: src\views\index.hbs }}

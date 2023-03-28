@@ -14,6 +14,15 @@ export default new EntitySchema({
     name: {
       type: "varchar",
     },
+    color: {
+      type: "varchar",
+    },
+    isFluffy: {
+      type: "boolean",
+    },
+    latinName: {
+      type: "varchar",
+    },
   },
   relations: {
     type: {

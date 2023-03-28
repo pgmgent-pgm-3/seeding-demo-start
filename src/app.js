@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import DataSource from "./lib/DataSource.js";
 import { VIEWS_PATH } from "./consts.js";
 import { home } from "./controllers/home.js";
+import { animals } from "./controllers/animals.js";
 
 const app = express();
 app.use(express.static("public"));
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * App Routing
  */
 app.get("/", home);
+app.get("/animals", animals)
 
 /**
  * Init TypeORM

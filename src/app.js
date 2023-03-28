@@ -8,6 +8,8 @@ import { VIEWS_PATH } from "./consts.js";
 import { home } from "./controllers/home.js";
 import { animals } from "./controllers/animals.js";
 
+import { deleteAnimal } from "./controllers/api/animal.js";
+
 const app = express();
 app.use(express.static("public"));
 
@@ -30,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  */
 app.get("/", home);
 app.get("/animals", animals)
+app.get("/delete/:id", deleteAnimal)
 
 /**
  * Init TypeORM

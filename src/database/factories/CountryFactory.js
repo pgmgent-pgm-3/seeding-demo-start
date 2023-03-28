@@ -1,7 +1,7 @@
-import Factory from "./Factory";
+import Factory from "./Factory.js";
 import fetch from "node-fetch";
 import * as cheerio from "cheerio";
-import { DataSource } from "typeorm";
+import DataSource from "../../lib/DataSource.js";
 
 class CountryFactory extends Factory {
     constructor() {
@@ -30,7 +30,7 @@ class CountryFactory extends Factory {
 
         const randomCountry = this.countries[randIndex];
 
-        const record = await this.inserted(randomCountry);
+        const record = await this.insert(randomCountry);
 
         this.inserted.push(record);
     }
@@ -47,3 +47,5 @@ class CountryFactory extends Factory {
         return record;
     }
 }
+
+export default new CountryFactory();
